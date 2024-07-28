@@ -1,9 +1,14 @@
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { experiments } = require('webpack');
 module.exports = {
   entry: './index.js',
-  // mode: 'development',
-  // devtool: 'hidden-source-map',
+  mode: 'development',
+  target:'es2020',
+  devtool: false,
+  experiments:{
+    outputModule:true,
+  },
   output: {
     publicPath: 'http://localhost:3001/',
     clean: true,
@@ -49,6 +54,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'component_app',
+      library:{type:"module"},
       filename: 'remoteEntry.js',
       exposes: {
         './Button': './src/Button.jsx',
