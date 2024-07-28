@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { experiments } = require('webpack');
 module.exports = {
   entry: './index.js',
-  mode: 'development',
-  target:'es2020',
   devtool: false,
   experiments:{
     outputModule:true,
