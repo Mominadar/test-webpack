@@ -1,8 +1,8 @@
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { experiments } = require('webpack');
+
 module.exports = {
   entry: './index.js',
+  target: 'es2020',
   devtool: false,
   experiments:{
     outputModule:true,
